@@ -1,4 +1,4 @@
-module aka-somix/helloworld
+module github.com/aka-somix/concurrent-vs-parallel
 
 go 1.20
 

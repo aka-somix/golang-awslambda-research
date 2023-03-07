@@ -1,6 +1,6 @@
 module ?= "."
 
-build:
+sam-build:
 	cd ${module} && sam build
 
 debug: build-sam
