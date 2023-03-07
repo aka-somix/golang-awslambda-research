@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Local/Todo-List",
+      "type": "go",
+      "request": "launch",
+      "mode": "debug",
+      "program": "${workspaceFolder}/local-go/todolist/main.go"
+    },
+    {
+      "name": "Lambda/Hello-World",
+      "type": "go",
+      "request": "attach",
+      "preLaunchTask": "debug-with-sam",
+      "mode": "remote",
+      "remotePath": "",
+      "port": 9999,
+      "host": "127.0.0.1",
+    }
+  ]
+}

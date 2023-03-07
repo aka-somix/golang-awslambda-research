@@ -16,3 +16,6 @@
 
 # Compiled binaries folder
 bin
+
+# AWS SAM build folder
+.aws-sam
