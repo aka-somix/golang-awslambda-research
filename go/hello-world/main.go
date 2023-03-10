@@ -1,15 +1,16 @@
 package main
 
 import (
-	"context"
+	"fmt"
 
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
-func HandleRequest(ctx context.Context) (string, error) {
-        return "Hello World", nil
+func Handler() (string, error) {
+	fmt.Println("TESTING WITH A BREAKPOINT")
+	return "Hello World", nil
 }
 
 func main() {
-        lambda.Start(HandleRequest)
+        lambda.Start(Handler)
 }
