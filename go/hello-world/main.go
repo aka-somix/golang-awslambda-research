@@ -6,8 +6,8 @@ import (
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
-func Handler() (string, error) {
-	fmt.Println("TESTING WITH A BREAKPOINT")
+func Handler(event any) (string, error) {
+	fmt.Printf("Event Received: %s \n", event)
 	return "Hello World", nil
 }
 

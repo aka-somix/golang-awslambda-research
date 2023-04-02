@@ -8,3 +8,5 @@ Resources:
       FunctionName: scirone-go-helloworld
       Handler: main
       Runtime: go1.x
+      Tags:
+        Author: S.Cirone
