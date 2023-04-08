@@ -1,0 +1,44 @@
+AWSTemplateFormatVersion : '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  CreateTodo:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: lambda/create-todo
+      FunctionName: scirone-go-create-todo
+      Handler: main
+      Runtime: go1.x
+      Tags:
+        Author: S.Cirone
+        Project: Crud-API-Example
+  UpdateTodo:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: lambda/update-todo
+      FunctionName: scirone-go-update-todo
+      Handler: main
+      Runtime: go1.x
+      Tags:
+        Author: S.Cirone
+        Project: Crud-API-Example
+  DeleteTodo:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: lambda/delete-todo
+      FunctionName: scirone-go-delete-todo
+      Handler: main
+      Runtime: go1.x
+      Tags:
+        Author: S.Cirone
+        Project: Crud-API-Example
+  GetTodo:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: lambda/get-todo
+      FunctionName: scirone-go-get-todo
+      Handler: main
+      Runtime: go1.x
+      Tags:
+        Author: S.Cirone
+        Project: Crud-API-Example

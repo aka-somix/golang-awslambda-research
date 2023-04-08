@@ -4,4 +4,8 @@ use (
 	./go/concurrent-vs-parallel
 	./go/breakmemory
 	./go/hello-world
+	./go/crud-api/lambda/get-todo
+	./go/crud-api/lambda/create-todo
+	./go/crud-api/lambda/update-todo
+	./go/crud-api/lambda/delete-todo
 )
