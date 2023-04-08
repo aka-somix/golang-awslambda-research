@@ -8,5 +8,8 @@ Resources:
       FunctionName: scirone-go-break-memory
       Handler: main
       Runtime: go1.x
+      # 1 minute timeout
+      Timeout: 60
       Tags:
         Author: S.Cirone
+      
