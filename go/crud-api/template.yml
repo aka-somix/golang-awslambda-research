@@ -2,6 +2,21 @@ AWSTemplateFormatVersion : '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 
 Resources:
+  # API Gateway
+  ApiGwTodos:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Test
+      Auth:
+        ApiKeyRequired: true
+        UsagePlan:
+          CreateUsagePlan: PER_API
+          UsagePlanName: todos-apikey-generic-up
+      Tags:
+        Author: S.Cirone
+        Project: Crud-API-Example
+
+  # LAMBDA FUNCTIONS
   CreateTodo:
     Type: AWS::Serverless::Function
     Properties:
@@ -9,6 +24,13 @@ Resources:
       FunctionName: scirone-go-create-todo
       Handler: main
       Runtime: go1.x
+      Events:
+        ProxyApiRoot:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ApiGwTodos
+            Path: /todos
+            Method: POST
       Tags:
         Author: S.Cirone
         Project: Crud-API-Example
@@ -19,6 +41,13 @@ Resources:
       FunctionName: scirone-go-update-todo
       Handler: main
       Runtime: go1.x
+      Events:
+        ProxyApiRoot:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ApiGwTodos
+            Path: /todos
+            Method: PUT
       Tags:
         Author: S.Cirone
         Project: Crud-API-Example
@@ -29,6 +58,13 @@ Resources:
       FunctionName: scirone-go-delete-todo
       Handler: main
       Runtime: go1.x
+      Events:
+        ProxyApiRoot:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ApiGwTodos
+            Path: /todos
+            Method: DELETE
       Tags:
         Author: S.Cirone
         Project: Crud-API-Example
@@ -39,6 +75,21 @@ Resources:
       FunctionName: scirone-go-get-todo
       Handler: main
       Runtime: go1.x
+      Events:
+        ProxyApiRoot:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ApiGwTodos
+            Path: /todos
+            Method: GET
       Tags:
         Author: S.Cirone
         Project: Crud-API-Example
+
+Outputs:
+  ApiGateway:
+    Description: "The URL is:"
+    Value: !Sub "https://${ApiGatewayEndpoint}.execute-api.${AWS::Region}.amazonaws.com/Test/"
+  ApiKey:
+    Description: "You can find your API Key in the AWS console: (Put in the request HEADER as 'x-api-key')"
+    Value: !Sub "https://console.aws.amazon.com/apigateway/home?region=${AWS::Region}#/api-keys/${ApiGatewayEndpointApiKey}"
