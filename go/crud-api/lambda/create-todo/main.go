@@ -45,8 +45,19 @@ func CreateTodo(req events.APIGatewayProxyRequest) (events.APIGatewayProxyRespon
 			return events.APIGatewayProxyResponse{}, err
 	}
 
+	// Validate input
+	if body.Name == "" {
+		response.Body = fmt.Sprintf("Error. Invalid Body: %q. Missing Name", body)
+		response.StatusCode = 400
+
+		return response, nil
+	}
+
 	// Create and Store the Todo
 	newTodo := Todo.New(body.Name, body.Description)
+
+	// TODO aka-somix: could be deleted?
+	fmt.Printf("Todo Created is: %v \n", newTodo)
 
 	if err := saveTodo(newTodo); err != nil {
 			return events.APIGatewayProxyResponse{}, err

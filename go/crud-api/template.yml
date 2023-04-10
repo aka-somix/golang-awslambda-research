@@ -86,10 +86,10 @@ Resources:
         Author: S.Cirone
         Project: Crud-API-Example
 
-Outputs:
-  ApiGateway:
-    Description: "The URL is:"
-    Value: !Sub "https://${ApiGatewayEndpoint}.execute-api.${AWS::Region}.amazonaws.com/Test/"
-  ApiKey:
-    Description: "You can find your API Key in the AWS console: (Put in the request HEADER as 'x-api-key')"
-    Value: !Sub "https://console.aws.amazon.com/apigateway/home?region=${AWS::Region}#/api-keys/${ApiGatewayEndpointApiKey}"
+# Outputs:
+#   ApiGateway:
+#     Description: "The URL is:"
+#     Value: !Sub "https://${ApiGatewayEndpoint}.execute-api.${AWS::Region}.amazonaws.com/Test/"
+#   ApiKey:
+#     Description: "You can find your API Key in the AWS console: (Put in the request HEADER as 'x-api-key')"
+#     Value: !Sub "https://console.aws.amazon.com/apigateway/home?region=${AWS::Region}#/api-keys/${ApiGatewayEndpointApiKey}"
