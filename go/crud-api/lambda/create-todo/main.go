@@ -6,9 +6,13 @@ import (
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
-func CreateTodo(event any) (string, error) {
+type Response struct {
+	todoId string
+}
+
+func CreateTodo(event any) (Response, error) {
 	fmt.Printf("Event Received: %s \n", event)
-	return "Hello World", nil
+	return Response{todoId: "1"}, nil
 }
 
 func main() {

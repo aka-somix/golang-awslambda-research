@@ -8,3 +8,8 @@ Some research about using go lang in AWS Lambda functions
 1. Create the folder for the module
 2. Open a terminal in the workspace root and run:   
 ```go work use [MODULE_PATH]```
+
+
+## TODO 
+
+Read https://earthly.dev/blog/aws-lambda-api-proxy/ to implement CRUD API
