@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	Todo "github.com/aka-somix/crud-api/create-todo/Todo"
+	"github.com/aka-somix/crud-api/_shared/Todo"
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/valyala/fastjson"
